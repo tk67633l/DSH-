@@ -24,6 +24,7 @@
   "scripts": {
     "test": "node test/run-tests.mjs"
   },
+  "author": "TK67633L",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tk67633l/DSH-.git"
