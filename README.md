@@ -79,33 +79,51 @@ dsh plugin --profile web add dsh-balance-bubble
 dsh plugin --profile web add github:tk67633l/DSH-
 
 # 本地开发（link 安装）
-dsh plugin --profile web add link:E:\deepseekdm\dsh-balance-bubble
+dsh plugin --profile web add link:<本仓库绝对路径>
 ```
 
 安装后**重启 DSH**（bundle 层栈在启动时装载）；刷新页面即可看到挂件。
 
-不想用 CLI 时，本仓库外层提供了等价脚本：`node E:\deepseekdm\install-balance-bubble.mjs`
-（物化到 profile 的 `node_modules`、登记 `dependencies`、把包名加进 `dsh.profile.bundles`，
-并保留 `package.json.pre-balance-bubble.bak` 备份）。
+不想用 `dsh plugin` CLI 时，仓库自带等价脚本（物化到 profile 的 `node_modules`、
+登记 `dependencies`、把包名加进 `dsh.profile.bundles`，并备份原 `package.json`）：
+
+```bash
+node tools/install.mjs                # 默认 web profile
+node tools/install.mjs --link         # 以 link: 方式登记（本地开发）
+node tools/install.mjs --profile web  # 指定 profile
+```
 
 ## 自检
 
 ```bash
-node test/run-tests.mjs
+npm test          # 等价于 node test/run-tests.mjs
 ```
 
-两个套件：
+两个套件，都不访问网络：
 
 - `test/selftest.mjs` —— 定价引擎（峰谷边界、周末、政策切换、历史一致性）、host 路由注册与
-  JSON 结构、资源 MIME、注入顺序与幂等；
-- `test/widget-behavior.mjs` —— 在最小 DOM 里**真正执行** `lib/widget.js`，驱动点击流：
-  挂载 → loading → 余额 → 峰谷 → 5 秒自动收起 → 拖动不误触 → 键盘可达 → 音频解码/播放。
+  JSON 结构、资源 MIME 与格式、注入顺序与幂等；
+- `test/widget-behavior.mjs` —— 在一个最小 DOM 环境里**真正执行** `lib/widget.js`，驱动点击流：
+  挂载 → loading → 余额 → 峰谷 → 5 秒自动收起 → 拖动不误触 → 键盘可达 → 音频解码/播放
+  （配套的假 DOM 在 `test/widget-behavior-env.mjs`）。
 
-另可跑真实链路校验（会调用真实余额接口）：
+另有一个会**真实联网**的端到端校验（起真 HTTP 服务、调真实余额接口，凭据只在本进程内存使用）：
 
 ```bash
-node E:\deepseekdm\verify-installed.mjs
+node test/verify-live.mjs             # 用已安装副本 + 真实余额接口
+node test/verify-live.mjs --local     # 用本仓库代码
+node test/verify-live.mjs --offline   # 不联网，只校验路由与资源
 ```
+
+## 预览
+
+![挂件预览](docs/preview-widget.png)
+
+音效波形与频谱（取自视频音轨，已剪掉开头静音）：
+
+![音效波形](docs/preview-audio-waveform.png)
+
+![音效频谱](docs/preview-audio-spectrum.png)
 
 ## 立绘
 
