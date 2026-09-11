@@ -75,6 +75,9 @@ DSH Web 界面上的 **DeepSeek 余额气泡挂件**（以参考图一为原型�
 # 正式安装
 dsh plugin --profile web add dsh-balance-bubble
 
+# 直接从 GitHub 安装
+dsh plugin --profile web add github:tk67633l/dsh-balance-bubble
+
 # 本地开发（link 安装）
 dsh plugin --profile web add link:E:\deepseekdm\dsh-balance-bubble
 ```
