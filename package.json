@@ -1,0 +1,41 @@
+{
+  "name": "dsh-balance-bubble",
+  "version": "0.1.1",
+  "description": "DSH Web 界面右下角的 DeepSeek 余额气泡挂件：点人物看余额与今日已用，再点余额看当前模型处于峰期还是谷期（5 秒后收起），点击播放提示音",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "balance",
+    "widget",
+    "pricing",
+    "peak",
+    "off-peak"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/run-tests.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeteorNOX/dsh-balance-bubble.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeteorNOX/dsh-balance-bubble/issues"
+  },
+  "homepage": "https://github.com/MeteorNOX/dsh-balance-bubble#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+# 统一用 LF 存储，避免 Windows 上 core.autocrlf 造成整文件 diff
+* text=auto eol=lf
+*.png binary
+*.wav binary
+*.mp4 binary
+*.webp binary

@@ -1,0 +1,18 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.log
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本地临时文件
+*.tmp
+*.bak
+
+# 抠图中间产物（保留最终 assets/*.png，不提交中间图）
+work/
+preview-*.png
