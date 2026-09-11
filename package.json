@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tk67633l/dsh-balance-bubble.git"
+    "url": "git+https://github.com/tk67633l/DSH-.git"
   },
   "bugs": {
-    "url": "https://github.com/tk67633l/dsh-balance-bubble/issues"
+    "url": "https://github.com/tk67633l/DSH-/issues"
   },
-  "homepage": "https://github.com/tk67633l/dsh-balance-bubble#readme",
+  "homepage": "https://github.com/tk67633l/DSH-#readme",
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
